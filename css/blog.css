@@ -198,7 +198,7 @@ header {
 }
 @media screen and (max-width: 576px) {
   .header__catch {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
 
@@ -344,6 +344,11 @@ header {
   right: 50%;
   transform: translateX(50%);
 }
+@media screen and (max-width: 768px) {
+  .title_blog_text {
+    top: 70%;
+  }
+}
 .title_blog_text_hatihati {
   color: #fff;
   font-size: 4rem;
@@ -362,7 +367,7 @@ header {
 }
 @media screen and (max-width: 576px) {
   .title_blog_text_hatihati {
-    font-size: 1.8rem;
+    font-size: 1.25rem;
     transform: translateY(-75%);
   }
 }
@@ -383,7 +388,7 @@ header {
 }
 @media screen and (max-width: 576px) {
   .title_blog_text_koubou {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 

@@ -364,10 +364,10 @@ header {
     height: 250px;
   }
   .keyvisual .textAnimation {
-    font-size: 1.8rem;
+    font-size: 1.25rem;
   }
   .keyvisual .textAnimation__bro {
-    font-size: 1.5rem;
+    font-size: 1rem;
     top: 220px;
   }
 }

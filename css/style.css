@@ -325,17 +325,17 @@ header {
   font-size: 4rem;
   color: rgb(255, 179, 0);
   position: absolute;
-  top: 250px;
-  left: 45%;
+  top: 150px;
+  left: 50%;
   transform: translateX(-50%);
   letter-spacing: 0.2em;
 }
 .keyvisual .textAnimation__bro {
-  font-size: 4rem;
+  font-size: 2rem;
   color: #fff;
   position: absolute;
   top: 250px;
-  left: 78%;
+  left: 50%;
   transform: translateX(-50%);
   letter-spacing: 0.2em;
 }
@@ -354,9 +354,6 @@ header {
   }
   .keyvisual .textAnimation__bro {
     font-size: 2rem;
-    left: 70%;
-    top: 250px;
-    transform: translateY(6px);
   }
   .keyvisual img {
     width: 100vw;
@@ -368,10 +365,10 @@ header {
   }
   .keyvisual .textAnimation {
     font-size: 1.8rem;
-    left: 50%;
   }
   .keyvisual .textAnimation__bro {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    top: 220px;
   }
 }
 @-webkit-keyframes showTextFromBottom {
@@ -511,6 +508,11 @@ header {
 #contents {
   margin-left: 16px;
 }
+@media screen and (max-width: 576px) {
+  #contents {
+    margin-left: 0;
+  }
+}
 
 .contents .wrap {
   padding: 40vh 0 60vh;
@@ -549,48 +551,76 @@ header {
   color: #fff;
   font-style: normal;
 }
+@media screen and (max-width: 576px) {
+  .text-box {
+    padding: 20px 10px;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .text-box .catch {
   margin: 0 0 10px;
   font-size: 40px;
 }
 .text-box .copy {
   margin: 0;
-  line-height: 2;
 }
-.text-box .copy em {
+@media screen and (max-width: 576px) {
+  .text-box .copy {
+    padding: 1rem;
+  }
+}
+.text-box .copy p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+@media screen and (max-width: 576px) {
+  .text-box .copy p {
+    line-height: 1.8;
+  }
+}
+.text-box .copy p em {
   font-style: normal;
   font-weight: bold;
   color: rgb(255, 179, 0);
 }
 .text-box .foodProducts {
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: bold;
   margin: 24px 0 0;
   line-height: 1.8;
 }
+@media screen and (max-width: 576px) {
+  .text-box .foodProducts {
+    font-size: 1.25rem;
+  }
+}
 .text-box .foodProducts a {
   color: red;
   text-decoration: none;
+  font-size: 1.5rem;
 }
-.text-box .foodImg__box {
-  width: 150px;
+.text-box .foodImg__Wrapper {
+  width: 100%;
   height: 150px;
   display: flex;
   gap: 8px;
+  justify-content: center;
 }
-.text-box .foodImg__box .foodImg {
-  width: 100%;
-  height: 100%;
+.text-box .foodImg__Wrapper .foodImg__box {
+  width: 150px;
+  height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
   background: pink;
 }
-
-@media screen and (max-width: 440px) {
-  .text-box {
-    width: 300px;
-  }
+.text-box .foodImg__Wrapper .foodImg__box img.foodImg {
+  width: 100%;
+  height: 100%;
 }
+
 .profTxt {
   line-height: 2.5;
   letter-spacing: 0.2em;

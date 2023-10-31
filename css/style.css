@@ -343,6 +343,7 @@ header {
   transform: translateX(-55%);
   letter-spacing: 0.2em;
   text-shadow: 2px 2px 2px #000;
+  white-space: nowrap;
 }
 .keyvisual img {
   width: 100%;
@@ -584,6 +585,11 @@ header {
   font-size: 40px;
   text-shadow: 2px 2px 2px #000;
 }
+@media screen and (max-width: 576px) {
+  .text-box .catch {
+    font-size: 24px;
+  }
+}
 .text-box .copy {
   margin: 0;
 }
@@ -658,6 +664,7 @@ header {
 @media screen and (max-width: 576px) {
   .topBlogCard__imgWrapper {
     width: 100%;
+    text-align: center;
   }
 }
 .topBlogCard__imgWrapper img {
@@ -774,6 +781,7 @@ header {
   display: flex;
   justify-content: center;
   gap: 16px;
+  overflow: scroll;
 }
 .foodImg__Wrapper img {
   box-shadow: 4px 4px 16px #000;

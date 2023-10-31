@@ -260,7 +260,9 @@ header {
     right: -2rem;
     height: 100vh;
     top: 0;
-    background: #364e8b;
+    background: rgba(54, 78, 139, 0.7);
+    -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
     flex-direction: column;
     align-items: center;
     width: 50%;
@@ -329,15 +331,17 @@ header {
   left: 50%;
   transform: translateX(-50%);
   letter-spacing: 0.2em;
+  text-shadow: 2px 2px 2px #000;
 }
 .keyvisual .textAnimation__bro {
-  font-size: 2rem;
+  font-size: 3rem;
   color: #fff;
   position: absolute;
   top: 250px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-55%);
   letter-spacing: 0.2em;
+  text-shadow: 2px 2px 2px #000;
 }
 .keyvisual img {
   width: 100%;
@@ -353,7 +357,7 @@ header {
     font-size: 2.5rem;
   }
   .keyvisual .textAnimation__bro {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .keyvisual img {
     width: 100vw;
@@ -364,10 +368,10 @@ header {
     height: 250px;
   }
   .keyvisual .textAnimation {
-    font-size: 1.25rem;
+    font-size: 2rem;
   }
   .keyvisual .textAnimation__bro {
-    font-size: 1rem;
+    font-size: 2rem;
     top: 220px;
   }
 }
@@ -413,12 +417,18 @@ header {
   overflow: hidden;
 }
 
-.textAnimation > span:nth-of-type(odd) {
+.textAnimation > span:nth-of-type(1),
+.textAnimation > span:nth-of-type(2),
+.textAnimation > span:nth-of-type(5),
+.textAnimation > span:nth-of-type(6) {
   -webkit-animation: showTextFromBottom 2S ease-out backwards;
           animation: showTextFromBottom 2S ease-out backwards;
 }
 
-.textAnimation > span:nth-of-type(even) {
+.textAnimation > span:nth-of-type(3),
+.textAnimation > span:nth-of-type(4),
+.textAnimation > span:nth-of-type(7),
+.textAnimation > span:nth-of-type(8) {
   -webkit-animation: showTextFromTop 2S ease-out backwards;
           animation: showTextFromTop 2S ease-out backwards;
 }
@@ -571,6 +581,7 @@ header {
 .text-box .catch {
   margin: 0 0 10px;
   font-size: 40px;
+  text-shadow: 2px 2px 2px #000;
 }
 .text-box .copy {
   margin: 0;
@@ -582,6 +593,7 @@ header {
   line-height: 1.6;
   font-size: 20px;
   letter-spacing: 0.05em;
+  text-shadow: 2px 2px 2px #000;
 }
 @media screen and (max-width: 576px) {
   .text-box .copy p {
@@ -753,6 +765,7 @@ header {
   gap: 16px;
 }
 .foodImg__Wrapper img {
+  box-shadow: 4px 4px 16px #000;
   width: 200px;
   height: 150px;
   -o-object-fit: cover;

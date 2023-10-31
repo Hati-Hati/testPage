@@ -1,0 +1,170 @@
+@charset "utf-8";
+@use "reset";
+
+header {
+    display: flex;
+    align-items: center;
+    height: 30px;
+
+    h2 {
+        font-weight: normal;
+        margin-left: 24px;
+    }
+
+    ul {
+        margin-left: auto;
+        display: flex;
+
+        li {
+            list-style: none;
+            margin-right: 24px;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+    }
+}
+
+.keyvisual {
+    // background: #000;
+    width: 100vw;
+    height: 267px;
+    position: relative;
+
+    .textAnimation {
+        font-size: 3rem;
+        color: #fff;
+        position: absolute;
+        top: calc((267px/2) - 0.5em);
+        left: 50%;
+        transform: translateX(-50%);
+        // color: red;
+        font-size: 50px;
+        letter-spacing: 0.2em;
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .keyvisual {
+        height: 150px;
+
+        .textAnimation {
+            font-size: 2rem;
+            top: calc((150px/2) - 0.5rem);
+            letter-spacing: .1rem;
+        }
+
+        img {
+            height: 150px;
+            width: 100vw;
+
+        }
+    }
+
+}
+
+@media screen and (max-width:440px) {
+    .keyvisual {
+        height: 100px;
+
+        .textAnimation {
+            font-size: 1.5rem;
+            top: calc((100px/2) - 0.5rem);
+            letter-spacing: .05rem;
+        }
+
+        img {
+            height: 100px;
+            width: 100vw;
+
+        }
+    }
+
+}
+
+// __________________________________textAnimation
+// .textAnimationWrapper {
+//     // height: 50px;
+//     // background: rgba(255, 255, 255, 0.1);
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .textAnimation {
+//     color: red;
+//     font-size: 50px;
+//     letter-spacing: 0.2em;
+// }
+
+// .textAnimation:not(:first-of-type) {
+//     // margin-top: 32px;
+
+// }
+
+
+@keyframes showTextFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+
+}
+
+@keyframes showTextFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+
+}
+
+.textAnimation span {
+    /*外側のspan*/
+    display: inline-block;
+}
+
+.textAnimation>span {
+    /*内側のspan*/
+    overflow: hidden;
+}
+
+.textAnimation>span:nth-of-type(odd) {
+    animation: showTextFromBottom 1S ease-out backwards;
+}
+
+.textAnimation>span:nth-of-type(even) {
+    animation: showTextFromTop 1S ease-out backwards;
+}
+
+
+// ------------------------------------------------
+section {
+    width: 80vw;
+    margin: 32px auto;
+
+}
+
+.img_box {
+    height: 70vh;
+    background: #eee url('../img/hachijyoukojima_sunset1.jpeg') center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    // object-fit: fill;
+}

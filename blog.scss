@@ -1,0 +1,1260 @@
+@charset 'utf-8';
+@use "reset";
+@use "variable" as var;
+@use "mixin" as mix;
+
+// $color: rgb(255, 179, 0);
+body {
+    @include mix.mq(var.$sm) {
+        overflow-x: hidden;
+
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 30px;
+    // margin-left: auto;
+    position: fixed;
+    z-index: 500;
+
+
+}
+
+.header__catch {
+    font-weight: normal;
+    margin-left: 12px;
+    // color: #fff;
+    color: var.$orange;
+    transition-duration: 1s;
+
+    @include mix.mq(var.$xs) {
+        font-size: 0.75rem;
+    }
+}
+
+
+//----------------------ハンバーガー
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.burger_nav_blog {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 8vh;
+    // background: #364e8b;
+    margin-left: auto;
+}
+
+// .logo {
+//     color: #fff;
+//     font-size: 22px;
+// }
+
+.nav_links_blog {
+    display: flex;
+    gap: 24px;
+    justify-content: space-around;
+    // width: 38%;
+    margin-right: 24px;
+    // z-index: 888;
+    transition: all 0.5s ease-in-out;
+
+    @include mix.mq(var.$lm) {
+        width: 55%;
+    }
+
+    @include mix.mq(var.$sm) {
+        position: absolute;
+        // right: 0;
+        right: -2rem;
+        height: 100vh;
+        // top: 8vh;
+        top: 0;
+        background: #364e8b;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(110%);
+
+    }
+
+
+}
+
+.nav_links_blog li {
+    list-style: none;
+}
+
+.nav_links_blog a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.burger_blog {
+    cursor: pointer;
+    margin-right: 24px;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    // display: none;
+    opacity: 0;
+    z-index: 1111;
+
+    @include mix.mq(var.$sm) {
+        opacity: 1;
+        cursor: pointer;
+
+    }
+}
+
+.burger_blog #x {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    // background: var.$orange;
+    margin: 5px;
+    transition: all 0.5s ease-in-out;
+    // z-index: 888;
+}
+
+.nav_active_blog {
+    transform: translateX(0%) !important;
+    /* transform: translateX(0%); */
+}
+
+.title.hide {
+    opacity: 0;
+}
+
+@keyframes navLinksFade {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(405deg) translate(-5px, -6px);
+}
+
+
+//---------------------------------------表題-------------------------------
+.title_blog {
+
+    width: 100vw;
+    // position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.title_blog_text {
+    display: flex;
+    vertical-align: baseline;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translateX(50%);
+
+    // font-size: 4rem;
+    @include mix.mq(var.$sm) {
+        top: 70%;
+
+    }
+
+
+    &_hatihati {
+        color: #fff;
+        font-size: 4rem;
+        transform: translateY(-50%);
+
+        @include mix.mq(var.$lm) {
+            font-size: 3rem;
+        }
+
+        @include mix.mq(var.$sm) {
+            font-size: 2.5rem;
+            transform: translateY(-65%);
+        }
+
+        @include mix.mq(var.$xs) {
+            font-size: 1.25rem;
+            transform: translateY(-75%);
+        }
+    }
+
+
+    &_koubou {
+        transform: translateY(-50%);
+        color: var.$orange;
+        font-size: 4rem;
+
+        @include mix.mq(var.$lm) {
+            font-size: 3rem;
+        }
+
+        @include mix.mq(var.$sm) {
+            font-size: 2rem;
+            // transform: translateY(0.2px);
+            // top: 55%;
+        }
+
+        @include mix.mq(var.$xs) {
+            font-size: 1rem;
+        }
+
+    }
+
+
+}
+
+
+// ----------------------スクロールボタン---------------
+.scrollBtn {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: .25rem;
+    background: red;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 8;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s;
+
+    @include mix.mq(var.$sm) {
+        display: none;
+    }
+
+
+
+    &__link {
+        display: block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+
+        .bi {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            // color: red;
+            position: relative;
+            top: 10px;
+            animation: jump .8s ease .2s 3;
+            transition: all 1s;
+
+        }
+    }
+}
+
+
+.scrollBtn.show {
+    opacity: 1;
+    animation: Jump .5s ease .2s 3;
+}
+
+@keyframes Jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.5rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+//-------------------------------------------------
+//                blogcardscontainerの設定
+//-----------------------------------------------------
+
+//       blogCardsのmainの基本レイアウト
+
+.blogCardsContainer {
+    display: flex;
+    margin: 240px 0 70px;
+
+    @include mix.mq(var.$lg) {
+        margin-top: 200px;
+
+    }
+
+    @include mix.mq(var.$sm) {
+        // display: block;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    @include mix.mq(var.$xs) {
+        // display: block;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+.blogCards {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    width: calc(100vw - 200px);
+    margin: 16px;
+
+    @include mix.mq(var.$sm) {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80vw;
+
+
+    }
+
+
+    li {
+        margin-top: 16px;
+        list-style: none;
+    }
+
+
+}
+
+.blogCard {
+    width: calc((100% - 72px) / 3);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px;
+
+    @include mix.mq(var.$lg) {
+        width: calc((100% - 32px) / 2);
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #333;
+        border-radius: 8px;
+        // margin-left: auto;
+        // margin-right: auto;
+
+    }
+
+    @include mix.mq(var.$sm) {
+        width: 100%;
+
+    }
+
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-decoration: none;
+        color: inherit;
+
+        @include mix.mq(var.$xs) {
+            display: block;
+
+        }
+    }
+
+    &__title {
+
+        margin-top: 16px;
+        z-index: -1;
+    }
+
+    &__text {
+        line-height: 1.2;
+        letter-spacing: .09em;
+        // margin: 16px;
+        margin-bottom: 16px;
+
+        @include mix.mq(var.$sm) {
+            margin: 0 auto;
+            width: 80%;
+        }
+    }
+
+
+}
+
+// @media screen and (max-width:1200px) {
+//     // .blogCardsContainer {
+//     //     margin-top: 200px;
+//     // }
+
+//     .blogCard {
+//         width: calc((100% - 32px) / 2);
+//         display: flex;
+//         flex-direction: column;
+//         border: 1px solid #333;
+//         border-radius: 8px;
+//         margin-left: auto;
+//         margin-right: auto;
+
+
+//     }
+// }
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.blogCard__imgWrapper {
+    width: 90%;
+    margin: 16px auto 0;
+
+    @include mix.mq(var.$sm) {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.blogCard__title {
+    text-align: center;
+    padding: 16px 0;
+    color: #333;
+    position: relative;
+
+
+
+    &_span {
+        @include mix.mq(var.$sm) {
+            position: relative;
+
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 2rem;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 2em;
+            background: var.$orange;
+
+            // z-index: 20;
+            @include mix.mq(var.$sm) {
+                display: none;
+
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 2em;
+            display: block;
+            width: 2rem;
+            height: 2px;
+            background: var.$orange;
+
+            @include mix.mq(var.$sm) {
+                position: absolute;
+                top: 1.25rem;
+                right: 50%;
+                transform: translateX(50%);
+                width: 10rem;
+                height: 2px;
+
+                // z-index: 20;
+
+            }
+
+        }
+    }
+}
+
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//-----------------------sidebarの基本
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#sidebar {
+    width: 200px;
+    // background: pink;
+    margin-top: 16px;
+
+    @include mix.mq(var.$sm) {
+        display: block;
+        margin-top: 70px;
+        width: 100vw;
+
+    }
+
+
+}
+
+
+//    -------------サイドバーレイアウト
+.sidebar {
+    @include mix.mq(var.$sm) {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+
+    }
+}
+
+.sidebar__link {
+    padding: 24px 0;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(transparent 55%, skyblue 70%);
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all .5s ease;
+    cursor: pointer;
+
+    @include mix.mq(var.$sm) {
+        width: 100px;
+        height: 50px;
+        background: linear-gradient(transparent 55%, skyblue 70%);
+    }
+
+
+
+    &:active {
+        background: linear-gradient(transparent 55%, deepskyblue 70%);
+
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+
+
+
+//-------------------- バナーのレイアウト
+.linkBanner {
+    margin-top: 70px;
+
+    @include mix.mq(var.$sm) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @include mix.mq(var.$sm) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        width: 90%;
+
+    }
+}
+
+.linkBanner__part {
+    padding: 24px 0;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(transparent 55%, pink 70%);
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all .5s ease;
+    text-decoration: none;
+    cursor: pointer;
+
+    @include mix.mq(var.$sm) {
+        width: 100px;
+        height: 50px;
+        background: linear-gradient(transparent 55%, var.$orange 70%);
+
+    }
+
+    &:active {
+        background: linear-gradient(transparent 55%, hotpink 70%);
+
+
+
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+
+//--------------------------form-----------------------
+.blContainer__form {
+    width: 70%;
+    margin-top: 70px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include mix.mq(var.$sm) {
+        width: 90%;
+
+    }
+
+
+    table {
+        width: 100%;
+        caption-side: top;
+        margin: 24px 0;
+
+        caption {
+            padding: 16px;
+            text-align-last: left;
+            letter-spacing: .1em;
+            line-height: 1.6;
+        }
+
+
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+
+            &:first-child {
+                background: #eee;
+            }
+
+
+        }
+
+        .userName {
+            height: 32px;
+            width: 180px;
+        }
+
+
+    }
+}
+
+// -------------------footer------------------------------------------
+footer {
+    display: block;
+    width: 100vw;
+    height: 150px;
+    text-align: center;
+    position: relative;
+
+    .footer__logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        // color: red;
+    }
+
+    .footer__logo_black {
+        color: #333;
+    }
+
+}
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// //---------------------------BgImage----------
+// .background {
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     height: 100%;
+//     position: fixed;
+//     background-position: center center;
+//     opacity: 0;
+//     background-size: cover;
+//     transition: all 1.5S ease 0s;
+// }
+
+// .show .background {
+//     opacity: 1;
+// }
+
+// #contents {
+//     margin-left: 16px;
+
+// }
+
+// .contents .wrap {
+//     padding: 40vh 0 60vh;
+//     position: relative;
+//     z-index: 2;
+
+
+// }
+
+// // design
+// #content01_bg {
+//     background-image: url("../img/kojima_top.jpeg");
+//     background: no-repeat cover;
+// }
+
+
+
+// #content02_bg {
+//     background-image: url("../img/fuji1.jpeg");
+//     background: no-repeat cover;
+// }
+
+// #content03_bg {
+//     background-image: url("../img/susuki1.jpeg");
+//     background: no-repeat cover;
+// }
+
+// #content04_bg {
+//     background-image: url("../img/upstear1.jpeg");
+//     background: no-repeat cover;
+// }
+
+// // #content01 .wrap {
+// //     background: rgba(255, 0, 0, 0.2);
+// // }
+
+// // #content02 .wrap {
+// //     background: rgba(0, 255, 0, 0.2);
+// // }
+
+// // #content03 .wrap {
+// //     background: rgba(0, 0, 255, .2);
+// // }
+// #text-box00 {
+//     display: none;
+// }
+
+// .text-box {
+//     padding: 50px 25px;
+//     width: 480px;
+//     // width: 80vw;
+//     background: rgba(0, 0, 0, 0.5);
+//     // color: rgb(255, 179, 0);
+//     color: #fff;
+//     font-style: normal;
+
+
+//     .catch {
+//         margin: 0 0 10px;
+//         font-size: 40px;
+//     }
+
+//     .copy {
+//         margin: 0;
+//         line-height: 2;
+
+//         em {
+//             font-style: normal;
+//             font-weight: bold;
+//             color: var.$orange;
+//         }
+//     }
+
+
+
+//     .foodProducts {
+//         font-size: 24px;
+//         font-weight: bold;
+//         margin: 24px 0 0;
+//         line-height: 1.8;
+
+//         // color: red;
+
+//         a {
+//             color: red;
+//             text-decoration: none;
+//         }
+//     }
+
+//     .foodImg__box {
+//         width: 150px;
+//         height: 150px;
+//         background: pink;
+//     }
+// }
+
+// @media screen and (max-width:440px) {
+//     .text-box {
+//         width: 300px;
+//     }
+// }
+
+
+
+// .profTxt {
+//     line-height: 2.5;
+//     letter-spacing: .2em;
+//     font-size: 20px;
+//     width: 100%;
+//     // color: red;
+// }
+
+
+
+//------------------------
+//------------------------cardBlog----------------------
+//-----------------------------
+//          基本のコンテンツ幅
+//--------------------------------
+// .blContainer {
+//     width: 92%;
+//     max-width: 920px;
+//     margin: 32px auto;
+// }
+
+//---------------------------
+//記事一覧用レイアウト
+//---------------------------
+
+//基本レイアウト
+// .cardsBlog {
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin-bottom: -10px;
+// }
+
+//3カラムレイアウト
+
+// .cardsBlog_col3 {
+
+//     .cardsBlog__item {
+//         width: calc((100% - 20px) / 3);
+//         margin-right: 10px;
+//         margin-bottom: 10px;
+
+//         &:nth-child(3n) {
+//             margin-right: 0;
+//         }
+//     }
+
+// }
+
+
+
+// ---------------------------
+// 記事一覧用カード　デフォルト
+// ーーーーーーーーーーーーーーーーーー
+// .cardBlog {
+//     // width: 300px;  これは使わない上で幅を設定
+//     background: #eee;
+//     list-style: none;
+//     overflow: hidden;
+//     // margin: 16px;
+
+//     &__link {
+//         display: block;
+//     }
+
+//     &__text {
+//         padding: 10px;
+//         // color: red;
+//     }
+
+//     &__date {
+//         font-size: 0.875rem;
+//     }
+
+// }
+
+// 記事一覧用カード　角丸Ver-------------
+// .cardBlog_rounded {
+//     border-radius: 10px;
+
+// }
+
+//newラベル付きdate---------------------
+// .cardBlog__date_label {
+//     &:before {
+//         content: "New";
+//         font-size: 0.75rem;
+//         display: inline-block;
+//         margin-right: 5px;
+//         padding: 1px 3px 0;
+//         color: #fff;
+//         background: red;
+//     }
+
+// }
+
+// //----------------------------
+//    ボタン
+// -------------------------------
+//      リンクボタン　デフォルト　ーーーーーーーーー
+
+// .button {
+//     display: inline-block;
+//     color: hotpink;
+//     border: 1px solid currentColor;
+//     padding: 1em 1.75em .9em;
+//     background: #fff;
+
+
+// }
+
+// //       リンクボタン　スモールサイズ
+// .button_size_s {
+//     font-size: 0.875rem;
+//     padding: .7em 1.25em .6em;
+// }
+
+// //リンクボタン　スモール　幅広
+// .button_size_b {
+//     display: block;
+//     font-size: 0.875rem;
+//     padding: .7em 1.25em .6em;
+//     width: 90%;
+//     margin: 10px auto;
+//     text-align: center;
+// }
+
+// //       リンクボタン　右矢印
+// .button_arrow_right {
+//     position: relative;
+//     padding-right: 1.75rem;
+
+//     &::after {
+//         position: absolute;
+//         top: 50%;
+//         right: .5em;
+//         display: block;
+//         transform: translateY(-50%);
+//         content: "→";
+//         font-size: 16px;
+//         font-weight: bold;
+//         // width: 18px;
+//         // height: 7px;
+
+//     }
+
+// }
+
+//-----------------------------blogtext---------------
+// .cardBlogTxt {
+//     width: 70vw;
+//     margin: 48px auto;
+
+//     em {
+//         font-style: normal;
+//         font-weight: bold;
+//     }
+
+//     p:nth-child(2) {
+//         margin-top: 24px;
+//     }
+
+// }
+// @media screen and (max-width:768px) {
+//     // #sidebar {
+//     // width: 200px;
+//     // display: block;
+//     // margin-top: 70px;
+//     // width: 100vw;
+
+//     // display: flex;
+//     // .sidebar {
+//     //     display: flex;
+//     //     justify-content: center;
+//     //     gap: 16px;
+//     //     width: 100%;
+
+
+//     // &__link {
+
+//     //     // width: 100px;
+//     //     // height: 50px;
+//     //     // background: linear-gradient(transparent 55%, skyblue 70%);
+
+//     // }
+
+
+//     // }
+
+//     .linkBanner {
+
+//         // display: flex;
+//         // flex-wrap: wrap;
+//         // justify-content: center;
+//         // gap: 16px;
+//         // width: 90%;
+
+
+//         &__part {
+
+//             width: 100px;
+//             height: 50px;
+//             background: linear-gradient(transparent 55%, var.$orange 70%);
+
+
+//         }
+//     }
+// }
+
+
+
+// @media screen and (max-width:550px) {
+//     #sidebar {
+//         display: block;
+//         // display: flex;
+//         // gap: 16px;
+//         margin: 70px auto 0;
+
+//         .sidebar {
+//             // width: calc((100vw - (16px * 3)) / 2);
+//             margin-top: 0;
+//             // display: flex;
+//         }
+
+//         .linkBanner {
+//             // width: calc((100vw - (16px * 3)) / 2);
+//             // margin-top: 0;
+//             // display: flex;
+//             // display: block;
+//             width: 150px;
+
+
+//         }
+//     }
+
+// }
+
+
+
+
+
+// ---------------------------------------------bgattachment-------------------
+// section {
+//     width: 100%;
+//     margin: 32px auto;
+
+// }
+
+// .img_box {
+//     height: 70vh;
+//     background: #eee url('../img/hachijyoukojima_sunset1.jpeg') center;
+//     background-size: cover;
+//     background-attachment: fixed;
+//     background-repeat: no-repeat;
+//     background-position: 50% 70%;
+//     // background-position: bottom;
+//     // object-fit: fill;
+// }
+//     @include mix.mq(var.$sm) {
+//         // position: relative;
+
+//         // &_span {
+
+//         //     &::before {
+
+//         //         position: absolute;
+//         //         top: 50%;
+//         //         left: 8em;
+//         //         background: var.$orange;
+//         //         // z-index: 20;
+//         //     }
+
+//         //     &::after {
+
+//         //         position: absolute;
+//         //         top: 50%;
+//         //         right: 8em;
+
+
+//         //     }
+//         // }
+
+//         .blogCard__link {
+//             // display: block;
+
+
+//             //    flex:columnにしてimgの幅を広げる
+//             // .blogCard__imgWrapper {
+//             //     width: 100%;
+
+//             // }
+
+//             // .blogCard__text {
+//             //     margin: 0 auto;
+//             //     width: 80%;
+//             //     // width: 70%;
+//             // }
+
+//         }
+
+//     }
+
+// }
+
+
+
+
+
+
+// @media screen and (max-width:768px) {
+//     // .blogCardsContainer {
+//     //     display: block;
+//     // }
+
+//     // .blogCards {
+//     //     display: block;
+//     //     margin-left: auto;
+//     //     margin-right: auto;
+//     // }
+
+//     // .blogCard {
+//     //     width: 70vw;
+
+//     // }
+
+//     .blogCard__title {
+
+//         position: relative;
+
+//         &_span {
+
+//             &::before {
+
+//                 position: absolute;
+//                 top: 50%;
+//                 left: 8em;
+//                 background: var.$orange;
+//                 // z-index: 20;
+//             }
+
+//             &::after {
+
+//                 position: absolute;
+//                 top: 50%;
+//                 right: 8em;
+
+
+//             }
+//         }
+
+//         .blogCard__link {
+//             // display: block;
+
+
+//             //    flex:columnにしてimgの幅を広げる
+//             .blogCard__imgWrapper {
+//                 width: 100%;
+
+//             }
+
+//             .blogCard__text {
+//                 margin: 0 auto;
+//                 width: 80%;
+//                 // width: 70%;
+//             }
+
+//         }
+//     }
+// }
+
+// @media screen and (max-width:550px) {
+//     // .blogCardsContainer {
+//     //     display: block;
+//     // }
+
+
+//     .blogCard__link {
+//         display: block;
+
+//     }
+// }
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+// .button {
+//     display: inline-block;
+//     padding: .7em 2.5em .6em 2em;
+//     border-radius: 3px;
+//     color: var.$orange;
+//     border: 1px solid currentColor;
+//     padding: 1em 1.75em .9em;
+//     background: #fff;
+
+
+// }
+
+// //       リンクボタン　スモールサイズ
+// .button_size_s {
+//     font-size: 0.875rem;
+//     padding: .7em 1.25em .6em;
+// }
+
+// //リンクボタン　スモール　幅広
+// .button_size_b {
+//     display: block;
+//     font-size: 0.875rem;
+//     padding: .7em 1.25em .6em;
+//     width: 90%;
+//     margin: 10px auto;
+//     text-align: center;
+// }
+
+// //       リンクボタン　右矢印
+// .button_arrow_right {
+//     position: relative;
+//     padding-right: 1.75rem;
+
+//     &::after {
+//         position: absolute;
+//         top: 50%;
+//         right: .5em;
+//         display: block;
+//         transform: translateY(-50%);
+//         content: "→";
+//         font-size: 16px;
+//         font-weight: bold;
+//         // width: 18px;
+//         // height: 7px;
+
+//     }
+
+// }

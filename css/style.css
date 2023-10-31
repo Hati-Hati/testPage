@@ -332,6 +332,7 @@ header {
   transform: translateX(-50%);
   letter-spacing: 0.2em;
   text-shadow: 2px 2px 2px #000;
+  white-space: nowrap;
 }
 .keyvisual .textAnimation__bro {
   font-size: 3rem;
